@@ -16,9 +16,6 @@ class Home extends BaseController
     public function index()
     {
         $country = $this->model->selectData("countries");
-        // echo "<pre>";
-        // print_r($country);
-        // die();
         $data['country'] = $country;
         return view('welcome_message', $data);
     }
@@ -28,12 +25,6 @@ class Home extends BaseController
     {
         $countryID = $this->request->getPost("cId");
         $stateData = $this->model->selectData("states", array("country_id" => $countryID));
-
-        // $output = "";
-        // foreach ($stateData as $state) {
-        //     $output .= "<option value='$state->id'>$state->name</option>";
-        // }
-        // echo json_encode($output);
         echo json_encode($stateData);
     }
 
@@ -48,6 +39,5 @@ class Home extends BaseController
             $output .= "<option value='$city->id'>$city->name</option>";
         }
         echo json_encode($output);
-        // echo json_encode($stateData);
     }
 }

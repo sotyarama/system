@@ -74,11 +74,8 @@
                     let output = "<option>select state</option>";
                     for (let row in data) {
                         output += `<option value="${data[row].id}">${data[row].name}</option>`;
-                        // console.log(data[row].id);
-                        // console.log(data[row].name);
                     }
                     document.querySelector("#stateID").innerHTML = output;
-                    // console.log(result);
                 }
             });
         }
@@ -92,16 +89,7 @@
                 },
                 success: function(result) {
                     let data = JSON.parse(result);
-
-                    // let output = "<option>select city</option>";
-                    // for (let row in data) {
-                    //     output += `<option value="${data[row].id}">${data[row].name}</option>`;
-                    //     console.log(data[row].id);
-                    //     console.log(data[row].name);
-                    // }
-                    // document.querySelector("#cityId").innerHTML = output;
                     document.querySelector("#cityId").innerHTML = data;
-                    // console.log(result);
                 }
             });
         }
