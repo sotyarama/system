@@ -22,7 +22,8 @@ class XLSXController extends BaseController
         $this->commonModel = new CommonModel();
         $this->spreadsheet = new Spreadsheet();
         $this->drawing = new Drawing();
-        $this->writer = IOFactory::createWriter($this->spreadsheet, 'Xlsx');
+        $this->writer = new Xlsx($this->spreadsheet);
+        // $this->writer = IOFactory::createWriter($this->spreadsheet, 'Xlsx');
     }
 
     public function brandsXLSX()
@@ -39,7 +40,7 @@ class XLSXController extends BaseController
         $row = $startRow;
 
         foreach ($brands as $b) {
-            ${'drw' . $b->brand_slug} = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
+            ${'drw' . $b->brand_slug} = new Drawing();
             ${'drw' . $b->brand_slug}->setName($b->brand_name);
             ${'drw' . $b->brand_slug}->setDescription($b->brand_slug);
             ${'drw' . $b->brand_slug}->setPath('assets/img/brandslogo/' . $b->brand_logo);
