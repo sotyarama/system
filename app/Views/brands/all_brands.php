@@ -10,11 +10,15 @@
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">
-                        <div class="col-10">
+                        <div class="col-8">
 
                         </div>
-                        <div class="col-2">
-                            <button type="button" class="btn btn-block btn-primary btn-sm">Add Vehicle</button>
+                        <div class="col-4">
+                            <div class="row d-flex justify-content-end">
+                                <a href="brandsXLSX" class="btn btn-primary btn-sm mr-1">Excel</a>
+                                <a href="brandsPDF" class="btn btn-primary btn-sm mr-1" target="_blank">PDF</a>
+                                <a href="#" class="btn btn-primary btn-sm">Add Vehicle</a>
+                            </div>
                         </div>
                     </div>
                     <div class="row">

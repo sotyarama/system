@@ -31,6 +31,10 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Dashboard::index');
 $routes->get('allbrands', 'Brand::allbrands');
+
+$routes->get('brandsPDF', 'PDFController::brandsPDF');
+$routes->get('brandsXLSX', 'XLSXController::brandsXLSX');
+
 $routes->post('state', "Home::state");
 $routes->post('city', "Home::city");
 

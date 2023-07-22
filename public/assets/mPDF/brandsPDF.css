@@ -1,0 +1,8 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #db0c0c;
+}
+
+tr:nth-child(even) {
+  background-color: #db0c0c;
+}
