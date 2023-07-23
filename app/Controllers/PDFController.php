@@ -65,7 +65,7 @@ class PDFController extends BaseController
                 <tbody>';
         foreach ($brands as $b) {
             $html .= '<tr>
-                        <td><img class="imgpdf" src="data:image/png;base64,' . base64_encode(file_get_contents('assets/img/brandslogo/' . $b->brand_logo)) . '" alt="" width="50"></td>
+                        <td><img src="assets/img/brandslogo/' .  $b->brand_logo . '" width="50"></td>
                         <td>' . $b->brand_name . '</td>
                         <td>' . $b->brand_slug . '</td>
                     </tr>';

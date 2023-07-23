@@ -203,6 +203,8 @@ class Brand extends BaseController
 
         $this->brandsModel->save($data);
 
+        session()->setFlashdata('message', 'Brand ' . $this->request->getVar('brand_name') . ' has been updated successfully');
+
         return redirect()->to('/allbrands');
     }
 
@@ -216,6 +218,8 @@ class Brand extends BaseController
         }
 
         $this->brandsModel->delete($brand['id_brand']);
+
+        session()->setFlashdata('message', 'Brand ' . $brand['brand_name'] . ' has been deleted successfully');
 
         return redirect()->to('/allbrands');
     }

@@ -67,7 +67,7 @@
                         <form action="/deletebrand/<?= $brand['brand_slug']; ?>" method="post" class="d-inline">
                             <?= csrf_field(); ?>
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this brand?')">Delete</button>
+                            <button type="submit" id="delete-brand" class="btn btn-danger btn-sm">Delete</button>
                         </form>
                     </div>
                 </div>

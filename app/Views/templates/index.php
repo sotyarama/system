@@ -53,6 +53,11 @@
     <!-- AdminLTE App -->
     <script src="<?= base_url(); ?>assets/dist/js/adminlte.js"></script>
 
+    <!-- SweetAlerts2 -->
+    <script src="<?= base_url(); ?>assets/sweetalerts2/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url(); ?>assets/sweetalerts2/myscript.js"></script>
+
+
     <!-- DataTables  & Plugins -->
     <?php if (isset($dataTables) && $dataTables == 'yes') : ?>
         <script src="<?= base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>

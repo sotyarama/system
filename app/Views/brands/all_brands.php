@@ -2,6 +2,7 @@
 <?= $this->section('page-content'); ?>
 
 <div class="container-fluid">
+    <div class="flash-data" data-flashdata="<?= session()->getFlashdata('message'); ?>"></div>
     <div class="row">
         <div class="col-12">
             <div class="card card-outline card-primary">
@@ -36,7 +37,9 @@
                                 <tbody>
                                     <?php foreach ($brands as $b) : ?>
                                         <tr>
-                                            <td><img class="imgpdf" src="data:image/png;base64,<?= base64_encode(file_get_contents('assets/img/brandslogo/' . $b->brand_logo)); ?>" alt="" width="50px"></td>
+                                            <td>
+                                                <img src="assets/img/brandslogo/<?= $b->brand_logo; ?>" width="50px">
+                                            </td>
                                             <td><?= $b->brand_name; ?></td>
                                             <td><?= $b->brand_g_company; ?></td>
                                             <td><?= $b->brand_i_company; ?></td>
