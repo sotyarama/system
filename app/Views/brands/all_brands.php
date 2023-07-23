@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col">
                             <table id="tableAllBrands" class="table table-bordered table-stripped table-hover text-center">
                                 <thead>
                                     <tr>

@@ -75,7 +75,6 @@
         <script>
             $(function() {
                 $("#tableAllBrands").DataTable({
-                    "responsive": true,
                     "lengthChange": true,
                     "autoWidth": true,
                     "info": true,
