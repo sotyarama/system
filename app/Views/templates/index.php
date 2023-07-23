@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+        <link rel="stylesheet" href="<?= base_url(); ?>assets/dataTables/dataTables.css">
     <?php endif; ?>
 </head>
 
@@ -66,7 +67,39 @@
         <script src="<?= base_url(); ?>assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
         <script src="<?= base_url(); ?>assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
         <script src="<?= base_url(); ?>assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+        <script>
+            $(function() {
+                $("#tableAllBrands").DataTable({
+                    "responsive": true,
+                    "lengthChange": true,
+                    "autoWidth": true,
+                    "info": true,
+                    "paging": true,
+                    "ordering": true,
+                    "searching": true,
+                });
+            });
+        </script>
+    <?php endif; ?>
 
+    <!-- Page add new brand or edit brand -->
+    <?php if (isset($tabTitle) && ($tabTitle == 'Add Brand' || $tabTitle == 'Edit Brand')) : ?>
+        <script>
+            function previewImg() {
+                const logo = document.querySelector('#brand_logo');
+                const logoLabel = document.querySelector('.custom-file-label');
+                const imgPreview = document.querySelector('.img-preview');
+
+                logoLabel.textContent = logo.files[0].name;
+
+                const fileLogo = new FileReader();
+                fileLogo.readAsDataURL(logo.files[0]);
+
+                fileLogo.onload = function(e) {
+                    imgPreview.src = e.target.result;
+                }
+            }
+        </script>
     <?php endif; ?>
 </body>
 

@@ -17,7 +17,7 @@
                             <div class="row d-flex justify-content-end">
                                 <a href="brandsXLSX" class="btn btn-primary btn-sm mr-1">Excel</a>
                                 <a href="brandsPDF" class="btn btn-primary btn-sm mr-1" target="_blank">PDF</a>
-                                <a href="#" class="btn btn-primary btn-sm">Add Vehicle</a>
+                                <a href="addbrand" class="btn btn-primary btn-sm">Add Brand</a>
                             </div>
                         </div>
                     </div>
@@ -28,17 +28,19 @@
                                     <tr>
                                         <th>Brand Logo</th>
                                         <th>Brand Name</th>
-                                        <th>Brand Slug</th>
-                                        <th>Brand Action</th>
+                                        <th>Principal</th>
+                                        <th>Local Company</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($brands as $b) : ?>
                                         <tr>
-                                            <td><img class="imgpdf" src="data:image/png;base64,<?= base64_encode(file_get_contents('assets/img/brandslogo/' . $b->brand_logo)); ?>" alt="" width="100px"></td>
+                                            <td><img class="imgpdf" src="data:image/png;base64,<?= base64_encode(file_get_contents('assets/img/brandslogo/' . $b->brand_logo)); ?>" alt="" width="50px"></td>
                                             <td><?= $b->brand_name; ?></td>
-                                            <td><?= $b->brand_slug; ?></td>
-                                            <td><a href="#" class="btn btn-block btn-primary btn-sm">Detail</a></td>
+                                            <td><?= $b->brand_g_company; ?></td>
+                                            <td><?= $b->brand_i_company; ?></td>
+                                            <td><a href="detailbrand/<?= $b->brand_slug; ?>" class="btn btn-block btn-primary btn-sm">Detail</a></td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
@@ -46,8 +48,9 @@
                                     <tr>
                                         <th>Brand Logo</th>
                                         <th>Brand Name</th>
-                                        <th>Brand Slug</th>
-                                        <th>Brand Action</th>
+                                        <th>Principal</th>
+                                        <th>Local Company</th>
+                                        <th>Action</th>
                                     </tr>
                                 </tfoot>
                             </table>
