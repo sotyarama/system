@@ -46,7 +46,7 @@
                                     <label for="brand_logo" class="col-sm-2 col-form-label">Logo</label>
                                     <div class="col-sm-10">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input <?= (!empty(validation_show_error('brand_logo'))) ? 'is-invalid' : null; ?>" id="brand_logo" name="brand_logo" onchange="previewImg()">
+                                            <input type="file" class="custom-file-input <?= (!empty(validation_show_error('brand_logo'))) ? 'is-invalid' : null; ?>" id="img_preview" name="brand_logo" onchange="previewImg()">
                                             <label class="custom-file-label" for="brand_logo"><?= $brand['brand_logo']; ?></label>
                                             <div class="invalid-feedback">
                                                 <?= validation_show_error('brand_logo'); ?>

@@ -43,7 +43,7 @@
                                     <label for="brand_logo" class="col-sm-2 col-form-label">Logo</label>
                                     <div class="col-sm-10">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input <?= (!empty(validation_show_error('brand_logo'))) ? 'is-invalid' : null; ?>" id="brand_logo" name="brand_logo" onchange="previewImg()">
+                                            <input type="file" class="custom-file-input <?= (!empty(validation_show_error('brand_logo'))) ? 'is-invalid' : null; ?>" id="img_preview" name="brand_logo" onchange="previewImg()">
                                             <label class="custom-file-label" for="brand_logo">Choose file</label>
                                             <div class="invalid-feedback">
                                                 <?= validation_show_error('brand_logo'); ?>
@@ -55,7 +55,7 @@
 
                             <div class="col-4">
                                 <div class="form-group row justify-content-center">
-                                    <img src="/assets/img/brandslogo/default.jpg" class="img-thumbnail img-preview" style="max-height: 300px">
+                                    <img src="/assets/img/default.jpg" class="img-thumbnail img-preview" style="max-height: 300px">
                                 </div>
                             </div>
                         </div>

@@ -74,7 +74,7 @@
         <script src="<?= base_url(); ?>assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
         <script>
             $(function() {
-                $("#tableAllBrands").DataTable({
+                $("#tableAll").DataTable({
                     "lengthChange": true,
                     "autoWidth": true,
                     "info": true,
@@ -87,21 +87,54 @@
     <?php endif; ?>
 
     <!-- Page add new brand or edit brand -->
-    <?php if (isset($tabTitle) && ($tabTitle == 'Add Brand' || $tabTitle == 'Edit Brand')) : ?>
+    <?php if (isset($use_img_preview) && ($use_img_preview == 'yes')) : ?>
         <script>
             function previewImg() {
-                const logo = document.querySelector('#brand_logo');
-                const logoLabel = document.querySelector('.custom-file-label');
+                const img = document.querySelector('#img_preview');
+                const imgLabel = document.querySelector('.custom-file-label');
                 const imgPreview = document.querySelector('.img-preview');
 
-                logoLabel.textContent = logo.files[0].name;
+                imgLabel.textContent = img.files[0].name;
 
-                const fileLogo = new FileReader();
-                fileLogo.readAsDataURL(logo.files[0]);
+                const fileImg = new FileReader();
+                fileImg.readAsDataURL(img.files[0]);
 
-                fileLogo.onload = function(e) {
+                fileImg.onload = function(e) {
                     imgPreview.src = e.target.result;
                 }
+            }
+        </script>
+    <?php endif; ?>
+
+    <!-- Page add new vehicle or edit vehicle -->
+    <?php if (isset($tabTitle) && ($tabTitle == 'Add Vehicle' || $tabTitle == 'Edit Vehicle')) : ?>
+        <script>
+            function brandIdChanged(brandId) {
+                $.ajax({
+                    url: "<?php echo base_url(); ?>/vehicles/getDataByBrandId/" + brandId,
+                    method: "POST",
+                    data: {
+                        brandId: brandId
+                    },
+                    success: function(result) {
+                        let data = JSON.parse(result);
+                        console.log(data);
+
+                        let series = data.series;
+                        let engine = data.engines;
+
+                        let outputSeries = '<option selected disabled>Choose Series</option>';
+                        let outputEngine = '<option selected disabled>Choose Engine</option>';
+                        for (let row in series) {
+                            outputSeries += '<option value="' + series[row].id_series + '">' + series[row].market_name + ' | ' + series[row].official_name + '</option>';
+                        }
+                        for (let row in engine) {
+                            outputEngine += '<option value="' + engine[row].id_engine + '">' + engine[row].engine_name + '</option>';
+                        }
+                        document.querySelector('#series_id').innerHTML = outputSeries;
+                        document.querySelector('#engine_id').innerHTML = outputEngine;
+                    }
+                });
             }
         </script>
     <?php endif; ?>

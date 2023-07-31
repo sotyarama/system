@@ -30,7 +30,9 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Dashboard::index');
+$routes->get('dropdown', 'Home::index');
 
+//Brands routes
 $routes->get('allbrands', 'Brand::allbrands');
 $routes->get('detailbrand/(:any)', 'Brand::detailbrand/$1');
 $routes->get('addbrand', 'Brand::addbrand');
@@ -38,9 +40,18 @@ $routes->post('savebrand', 'Brand::savebrand');
 $routes->get('editbrand/(:any)', 'Brand::editbrand/$1');
 $routes->post('updatebrand/(:any)', 'Brand::updatebrand/$1');
 $routes->delete('deletebrand/(:any)', 'Brand::deletebrand/$1');
-
 $routes->get('brandsPDF', 'PDFController::brandsPDF');
 $routes->get('brandsXLSX', 'XLSXController::brandsXLSX');
+
+//Vehicles routes
+$routes->get('allvehicles', 'Vehicle::allvehicles');
+$routes->get('detailvehicle/(:any)', 'Vehicle::detailvehicle/$1');
+$routes->get('addvehicle', 'Vehicle::addvehicle');
+$routes->post('savevehicle', 'Vehicle::savevehicle');
+$routes->get('editvehicle/(:any)', 'Vehicle::editvehicle/$1');
+$routes->post('updatevehicle/(:any)', 'Vehicle::updatevehicle/$1');
+$routes->delete('deletevehicle/(:any)', 'Vehicle::deletevehicle/$1');
+$routes->post('vehicles/getDataByBrandId/(:any)', 'Vehicle::getDataByBrandId/$1');
 
 $routes->post('state', "Home::state");
 $routes->post('city', "Home::city");

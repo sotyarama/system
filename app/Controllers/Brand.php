@@ -5,8 +5,6 @@ namespace App\Controllers;
 use App\Models\CommonModel;
 use App\Models\BrandsModel;
 
-use Config\Services;
-
 class Brand extends BaseController
 {
     protected $commonModel;
@@ -46,7 +44,8 @@ class Brand extends BaseController
     public function addbrand()
     {
         $data = [
-            'tabTitle'  => 'Add Brand'
+            'tabTitle'  => 'Add Brand',
+            'use_img_preview' => 'yes'
         ];
 
         return view('brands/add_brand', $data);
@@ -124,6 +123,7 @@ class Brand extends BaseController
     {
         $data = [
             'tabTitle'  => 'Edit Brand',
+            'use_img_preview' => 'yes',
             'brand'     => $this->brandsModel->getBrand($slug)
         ];
 
@@ -140,7 +140,7 @@ class Brand extends BaseController
             $ruleName = 'required|is_unique[brands.brand_name,brand_slug,' . $slug . ']';
         }
 
-        // Validation
+        //Validation
         if (!$this->validate([
             'brand_name'        => [
                 'rules'         => $ruleName,
